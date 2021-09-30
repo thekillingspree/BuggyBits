@@ -21,10 +21,8 @@ jobs:
         with:
           dotnet-version: '3.1.301'
           include-prerelease: true
-      - name: CD into Project folder
-        run: cd src
       - name: Build with dotnet
-        run: dotnet build --configuration Release
+        run: dotnet build --configuration Release ./src/BuggyBits.sln
 
       - name: dotnet publish
         run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
